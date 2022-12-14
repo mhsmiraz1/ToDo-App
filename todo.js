@@ -10,7 +10,7 @@ document.getElementById("input-btn").addEventListener("click", function () {
     <td>${inputValue}</td>
     <td>
     <button class="btn btn-primary delete-btn">Delete</button>
-    <button class="btn btn-success">Done</button>
+    <button class="btn btn-success line-through">Done</button>
     </td>
     `;
     bodyContainer.appendChild(createTable);
@@ -22,4 +22,15 @@ document.getElementById("input-btn").addEventListener("click", function () {
             event.target.parentNode.parentNode.style.display = "none";
         })
     }
+    const doneLine = document.getElementsByClassName('line-through');
+    for(let done of doneLine){
+        done.addEventListener("click", function(event){
+            event.target.parentNode.parentNode.style.textDecoration = "line-through";
+        })
+    }
+    // clear button for all items remove
+    const clearAll = document.getElementById("clear-btn");
+    clearAll.addEventListener("click", function(){
+        bodyContainer.style.display = "none";
+    })
 })
